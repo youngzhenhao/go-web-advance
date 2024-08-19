@@ -15,17 +15,33 @@ const (
 	dbname   = "testdb"
 )
 
-func main() {
+var db *sql.DB
+
+func initMysql() error {
 	// DSN:Data Source Name
 	dsn := username + ":" + password + "@" + protocol + "(" + host + ":" + port + ")" + "/" + dbname
-	db, err := sql.Open("mysql", dsn)
+	var err error
+	db, err = sql.Open("mysql", dsn)
 	if err != nil {
-		panic(err)
+		return err
+	}
+	err = db.Ping()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func main() {
+	if err := initMysql(); err != nil {
+		fmt.Println(err)
+		return
 	}
 	defer func(db *sql.DB) {
-		err = db.Close()
+		err := db.Close()
 		if err != nil {
 			fmt.Println(err)
 		}
 	}(db)
+	fmt.Println("Successfully connected!")
 }
