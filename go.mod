@@ -5,6 +5,7 @@ go 1.23.0
 require (
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.8.1
+	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9
 )
 
 require (
