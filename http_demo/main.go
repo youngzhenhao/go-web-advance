@@ -2,13 +2,22 @@ package main
 
 import (
 	"fmt"
-	"go-web-advance/utils"
 	"io"
 	"net/http"
+	"time"
 )
 
 func main() {
-	resp, err := http.Get("http://www.bing.com")
+	for {
+		time.Sleep(time.Millisecond * 100)
+		go func() {
+			demo()
+		}()
+	}
+}
+
+func demo() {
+	resp, err := http.Get("https://feel.wechen.xyz/index.php/Wechat/Customer/detail?id=3")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -24,5 +33,5 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(utils.ValueJsonString(body))
+	fmt.Println(string(body))
 }
