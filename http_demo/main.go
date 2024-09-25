@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-<<<<<<< HEAD
-=======
+	"net/url"
+
 	"html"
->>>>>>> 3466f845389cd26ff8997cf68d6dd71a1faf48bf
+
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
-<<<<<<< HEAD
+
 	"time"
 )
 
@@ -24,18 +24,12 @@ func main() {
 }
 
 func demo() {
-	resp, err := http.Get("https://feel.wechen.xyz/index.php/Wechat/Customer/detail?id=3")
-=======
-	"net/url"
-)
-
-func main() {
-	demo2()
+	//resp, err := http.Get("https://feel.wechen.xyz/index.php/Wechat/Customer/detail?id=3")
 }
 
 func demo1() {
 	resp, err := http.Get("http://www.bing.com")
->>>>>>> 3466f845389cd26ff8997cf68d6dd71a1faf48bf
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -52,8 +46,7 @@ func demo1() {
 		return
 	}
 	fmt.Println(string(body))
-<<<<<<< HEAD
-=======
+
 }
 
 func demo2() {
@@ -89,5 +82,4 @@ func demo3() {
 	})
 	log.Fatal(http.ListenAndServe(":8080", nil))
 
->>>>>>> 3466f845389cd26ff8997cf68d6dd71a1faf48bf
 }
